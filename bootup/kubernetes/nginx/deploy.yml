@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cello-nginx
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cello-nginx
+    spec:
+      containers:
+      - name: nginx
+        image: hyperledger/cello-nginx
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: nginx-config

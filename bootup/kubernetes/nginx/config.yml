@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  URL_PREFIX: /engine
+  UWSGI_SERVER_HOST: api-engine
